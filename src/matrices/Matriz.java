@@ -73,16 +73,18 @@ public class Matriz {
     public String toString(){
         String ret = "";
         ret += "[\n";
-        for (int i = 0; i < getDimension().width; i++) {
+
+        for (int j = 0; j < getDimension().height; j++) { // filas
             ret += "(";
-            for (int j = 0; j < getDimension().height; j++) {  
-                ret += String.format("%3d", datos[i][j]); 
-                if (j != getDimension().height - 1) ret += ", ";
-            } 
+            for (int i = 0; i < getDimension().width; i++) { // columnas
+                ret += String.format("%3d", datos[i][j]);
+                if (i != getDimension().width - 1) ret += ", ";
+            }
             ret += ")";
-            if (i != getDimension().width - 1) ret += ",";
+            if (j != getDimension().height - 1) ret += ",";
             ret += "\n";
-        } 
+        }
+
         ret += "]\n";
         return ret;
     }
