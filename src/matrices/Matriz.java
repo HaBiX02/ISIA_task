@@ -34,6 +34,27 @@ public class Matriz {
         return new Dimension(datos.length, datos[0].length);
     }
     
+    public static Matriz multiplicarDosMatrices(Matriz a, Matriz b) throws DimensionesIncompatibles { 
+        if(a.getDimension().width != b.getDimension().height) 
+            throw new DimensionesIncompatibles("La multiplicación de matrices requiere las misma cantidad de columnas de A, que de filas de B.");        
+    
+        int filasA = a.getDimension().height;
+        int columnasA = a.getDimension().width;
+        int columnasB = b.getDimension().width;
+
+        Matriz resultado = new Matriz(filasA, columnasB, false);
+
+        for (int i = 0; i < columnasB; i++) {
+            for (int j = 0; j < filasA; j++) {
+                for (int k = 0; k < columnasA; k++) {
+                    resultado.datos[i][j] += a.datos[k][j] * b.datos[i][k];
+                }
+            }
+        }
+
+        return resultado;
+    }     
+    
     public static Matriz sumarDosMatrices(Matriz a, Matriz b) throws DimensionesIncompatibles { 
         if(! a.getDimension().equals(b.getDimension())) throw new DimensionesIncompatibles("La suma de matrices requiere matrices de las mismas dimensiones");        
         int i, j, filasA, columnasA; 
