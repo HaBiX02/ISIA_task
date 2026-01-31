@@ -26,6 +26,21 @@ public class Matriz {
                     datos[i][j] = rnd.nextInt(100);
         }
     }
+    
+    public Matriz(int[][] valores) {
+    int filas = valores.length;
+    int columnas = valores[0].length;
+
+    datos = new int[columnas][filas];
+
+    for (int j = 0; j < filas; j++) {          // filas
+        for (int i = 0; i < columnas; i++) {   // columnas
+            datos[i][j] = valores[j][i];
+        }
+    }
+    }
+
+    
     public Matriz(Dimension d, boolean inicializarAleatorio){
         this(d.height, d.width, inicializarAleatorio);
     }
