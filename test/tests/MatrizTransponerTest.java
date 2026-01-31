@@ -22,7 +22,6 @@ public class MatrizTransponerTest {
 
         Matriz resultado = Matriz.invertir(m);
 
-        // Como Matriz no tiene equals, comparamos por toString()
         assertEquals(esperado.toString(), resultado.toString());
     }
 }

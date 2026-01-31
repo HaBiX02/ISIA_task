@@ -18,7 +18,6 @@ public class MatrizCompuestasTest {
         Matriz zt = Matriz.invertir(z);
         Matriz ztt = Matriz.invertir(zt);
 
-        // Sin equals(): comparamos por toString()
         assertEquals(z.toString(), ztt.toString());
     }
 
@@ -43,7 +42,6 @@ public class MatrizCompuestasTest {
         Matriz zt = Matriz.invertir(z);                          // Z^T
         Matriz der = Matriz.multiplicarDosMatrices(qt, zt);      // Q^T · Z^T
 
-        // Sin equals(): comparamos por toString()
         assertEquals(izq.toString(), der.toString());
     }
 }

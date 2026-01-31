@@ -9,10 +9,10 @@ public class MatrizMultiplicarTest {
 
     @Test
     public void multiplicar_dimensionesIncompatibles_lanzaExcepcion() {
-        // A = 2x3 (filas=2, columnas=3)
+        // A = 2x3
         Matriz a = new Matriz(2, 3, false);
 
-        // B = 4x2 (filas=4, columnas=2)
+        // B = 4x2
         Matriz b = new Matriz(4, 2, false);
 
         // Columnas(A)=3, Filas(B)=4 -> incompatibles
@@ -23,7 +23,6 @@ public class MatrizMultiplicarTest {
 
     @Test
     public void multiplicar_3x3_resultadoEsperado() throws DimensionesIncompatibles {
-        // Usamos el constructor Matriz(int[][] valores) que añadiste:
         Matriz a = new Matriz(new int[][]{
             {1, 2, 3},
             {4, 5, 6},
@@ -44,8 +43,6 @@ public class MatrizMultiplicarTest {
 
         Matriz resultado = Matriz.multiplicarDosMatrices(a, b);
 
-        // Como Matriz no tiene equals, comparamos por toString()
-        // (Alternativa mejor: implementar get() y comparar celda a celda)
         assertEquals(esperado.toString(), resultado.toString());
     }
 }
